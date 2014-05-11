@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('angularAppApp')
-  .controller('MainCtrl', function ($scope, $location) {
-    
+  .controller('MainCtrl', function ($scope, AuthService) {
+
     // $scope.awesomeThings = [
     //   'HTML5 Boilerplate',
     //   'AngularJS',
@@ -10,8 +10,7 @@ angular.module('angularAppApp')
     // ];
 
     $scope.logout = function(){
-      var logoutDestination ='/login';
-      $location.path(logoutDestination);
+      AuthService.logout();
     };
 
   });

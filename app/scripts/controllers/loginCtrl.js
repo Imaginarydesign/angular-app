@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('angularAppApp')
-  .controller('LoginCtrl', function ($scope, $location) {
+  .controller('LoginCtrl', function ($scope, AuthService) {
 
     $scope.credentials = {
       username:'',
@@ -9,13 +9,7 @@ angular.module('angularAppApp')
     };
 
     $scope.login = function(){
-      if($scope.credentials.username === 'adam') {
-        console.log('logged in');
-        var loginDestination ='/home';
-        $location.path(loginDestination);
-      } else {
-        console.log('not logged in');
-      }
+      AuthService.login($scope.credentials);
     };
 
   });
