@@ -13,7 +13,8 @@ angular.module('angularAppApp')
     $scope.login = function(){
       if($scope.credentials.username === 'adam') {
         console.log('logged in');
-        $location.path = ('/');
+        var loginDestination ='/';
+        $location.path(loginDestination);
       } else {
         console.log('not logged in');
       }
