@@ -1,22 +1,22 @@
 'use strict';
 
 angular.module('angularAppApp')
-  .controller('LoginCtrl', function ($scope) {
+  .controller('LoginCtrl', function ($scope, $location) {
 
-    $scope.users = [{
-      username:'adam',
-      password:'123'
-    }];
+    window.scope = $scope;
 
-    $scope.submit = function() {
-      if($scope.username && $scope.password) {
-        var user = $scope.username;
-        var pass = $scope.password;
-        alert("welcome"+user);
-       
-        $scope.myusers.push({username:user,password:pass});
-      }else{
-        alert('Invalid Login');
+    $scope.credentials = {
+      username:'',
+      password:''
+    };
+
+    $scope.login = function(){
+      if($scope.credentials.username === 'adam') {
+        console.log('logged in');
+        $location.path = ('/');
+      } else {
+        console.log('not logged in');
       }
     };
+
   });
